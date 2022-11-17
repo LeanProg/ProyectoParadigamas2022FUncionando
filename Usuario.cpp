@@ -50,6 +50,11 @@ void Usuario::ListarInformacion(){
 	cout<<"contraseña: "<<this->getcontrasenia()<<endl;
 
 }
+void Usuario::ListarInformacionDos(){
+	cout<<"----------"<<endl;;
+		cout<<"idUsuario: "<<this->id<<endl;
+		cout<<"Nombre del usuario: "<<this->getNombre()<<endl;
+}
 void Usuario::SetCantidadRespAceptadas(){
 		this->cantRespuestasAceptadas=this->cantRespuestasAceptadas++;
 }

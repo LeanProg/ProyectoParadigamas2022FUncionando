@@ -27,6 +27,7 @@ public:
 	bool crearRespuesta(Fecha f1);
 	void ListarUsuarios();
 	void ListarPreguntas();
+	void ListarRespuestas();
 	Usuario *buscarUsuario(int id);
 	virtual ~Sistema();
 };

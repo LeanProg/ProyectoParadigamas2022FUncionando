@@ -23,7 +23,7 @@ void Respuesta::ListarInformacion(){
 	cout<<"Id respuesta: "<<this->idrespuesta<<endl;
 	cout<<"Descripcion: "<<this->descripcion<<endl;
 	cout<<"Datos del usuario: "<<endl;
-	this->usuarioR.ListarInformacion();
+	this->usuarioR.ListarInformacionDos();
 }
 Respuesta::~Respuesta() {
 	// TODO Auto-generated destructor stub

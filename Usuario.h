@@ -35,6 +35,7 @@ public:
 	int getCantidadRespAceptadas();
 	void SetCantidadRespAceptadas();
 	void ListarInformacion();
+	void ListarInformacionDos();
 	virtual ~Usuario();
 };
 

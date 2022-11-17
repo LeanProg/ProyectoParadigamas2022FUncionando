@@ -30,7 +30,9 @@ public:
 	Pregunta();
 	Pregunta(string descripcion,string titulo,Fecha &Fp,Usuario &Usu);
 	Pregunta(Pregunta &aux);
-	void AgregarRespuesta();
+	int getid();
+	void AgregarRespuesta(Fecha f1,Usuario);
+	void ListarRespuestas();
 	void ListarInformacion();
 	virtual ~Pregunta();
 };

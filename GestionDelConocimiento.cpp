@@ -32,9 +32,11 @@ int main() {
 	SistemaPrincipal.crearPregunta(f);
 	SistemaPrincipal.crearPregunta(f);
 	SistemaPrincipal.ListarPreguntas();
+	SistemaPrincipal.crearRespuesta(f);
 	//P1.ListarInformacion();
 	cout<<"----------"<<endl;
 	cout<<"----------"<<endl;
+	SistemaPrincipal.ListarRespuestas();
 	//R1.ListarInformacion();
 
 	return 0;

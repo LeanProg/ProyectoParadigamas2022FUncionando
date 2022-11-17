@@ -16,6 +16,7 @@ Sistema::Sistema() {
 bool Sistema::crearUsuario(string nombre,string apellido,string paisorigen,string email,string contrasenia){
 	Usuario *nuevoUsu = new Usuario(nombre,apellido,paisorigen,email,contrasenia);
 	contedorUsuarios.insert(contedorUsuarios.end(),nuevoUsu);
+	return true;
 }
 void Sistema::ListarUsuarios(){
 	for (int var = 0; var<contedorUsuarios.size() ; ++var) {
@@ -42,18 +43,36 @@ bool Sistema::crearPregunta(Fecha f1){
 	Usuario *nuevoU(buscarUsuario(idbuscado));
 	Pregunta *np = new Pregunta("Por que tanto calor?","Dia caluroso",f1,*nuevoU);
 	contenedorP.insert(contenedorP.end(),np);
+	return true;
 }
 /*Metodo para crear Respuesta 16-11-20222*/
 bool Sistema::crearRespuesta(Fecha f1){
-
+	int idUsuario,idPregunta;
+	cout<<"Que usuario Desea Realizar la Respuesta?"<<endl;
+	cin>>idUsuario;
+	Usuario *nuevoU(buscarUsuario(idUsuario));
 	ListarPreguntas();
+	cout<<"Ingrese el id de la Pregunta a la que quiere agragar una respuesta"<<endl;
+	cin>>idPregunta;
+	for (int var = 0; var < contenedorP.size(); ++var) {
+		if (contenedorP[var]->getid()==idPregunta) {
+			contenedorP[var]->AgregarRespuesta(f1, *nuevoU);
+		}
+	}
+return true;
 }
+
 void Sistema::ListarPreguntas(){
 	for (int var = 0; var<contenedorP.size() ; ++var) {
 			contenedorP[var]->ListarInformacion();
 		}
 }
-
+void Sistema::ListarRespuestas(){
+	for (int var = 0; var < contenedorP.size(); ++var) {
+		cout<<"Respuestas de la prgunta: "<<var<<endl;
+		contenedorP[var]->ListarRespuestas();
+	}
+}
 Sistema::~Sistema() {
 	// TODO Auto-generated destructor stub
 }

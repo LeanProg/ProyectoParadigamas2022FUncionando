@@ -22,15 +22,27 @@ Pregunta::Pregunta(Pregunta &aux):fechaPregunta(aux.fechaPregunta),usuarioP(aux.
 	this->descripcion=aux.descripcion;
 }
 void Pregunta::ListarInformacion(){
+	cout<<"///////////////*****//////////////////"<<endl;
 	cout<<"ID pregunta: "<<this->idpregunta<<endl;
 	cout<<"Titulo: "<<this->titulo<<endl;
 	cout<<"Descripcion: "<<this->descripcion<<endl;
 	cout<<"Usuario: "<<endl;
-	this->usuarioP.ListarInformacion();
+	this->usuarioP.ListarInformacionDos();
+}
+/*Obtener el id*/
+int Pregunta::getid(){
+	return this->idpregunta;
 }
 /*Metodo Agregar Respuesta*/
-void Pregunta::AgregarRespuesta(){
+void Pregunta::AgregarRespuesta(Fecha f1,Usuario aux){
+	Respuesta *nuevaR = new Respuesta("Si porque hace frio",f1,aux);
+	contenedorRespuesta.insert(contenedorRespuesta.end(),nuevaR);
+}
 
+void Pregunta::ListarRespuestas(){
+	for (int var = 0; var < contenedorRespuesta.size(); ++var) {
+		contenedorRespuesta[var]->ListarInformacion();
+	}
 }
 Pregunta::~Pregunta() {
 	// TODO Auto-generated destructor stub
