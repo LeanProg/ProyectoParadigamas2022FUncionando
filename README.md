@@ -1,0 +1,2 @@
+# ProyectoParadigamas2022FUncionando
+ 
