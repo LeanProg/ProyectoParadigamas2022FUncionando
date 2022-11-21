@@ -25,8 +25,13 @@ public:
 	bool crearUsuario(string,string,string,string,string);
 	bool crearPregunta(Fecha f1);
 	bool crearRespuesta(Fecha f1);
+	void DarMegusta();
+	void RankearRespuesta();
+	void CambiarEstado();
+	void CambiarEstadodos();
 	void ListarUsuarios();
 	void ListarPreguntas();
+	void ListarPreguntasConRespuestas();
 	void ListarRespuestas();
 	Usuario *buscarUsuario(int id);
 	virtual ~Sistema();

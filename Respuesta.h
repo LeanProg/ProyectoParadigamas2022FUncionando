@@ -24,8 +24,11 @@ private:
 public:
 	Respuesta();
 	Respuesta(string descrip,Fecha &fecha,Usuario &usu);
+	void IncrementarContador();
 	void ListarInformacion();
+	int getCantidadMegusta();
 	virtual ~Respuesta();
+
 };
 
 #endif /* RESPUESTA_H_ */

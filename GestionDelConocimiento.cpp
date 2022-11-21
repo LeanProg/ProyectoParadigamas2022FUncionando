@@ -30,16 +30,34 @@ int main() {
 	//SistemaPrincipal.ListarUsuarios();
 
 	SistemaPrincipal.crearPregunta(f);
-	SistemaPrincipal.crearPregunta(f);
+	//SistemaPrincipal.crearPregunta(f);
+	cout<<"----------"<<endl;
+		cout<<"----------ListarPreguntas----"<<endl;
 	SistemaPrincipal.ListarPreguntas();
+	cout<<"----------Creo Respuesta ----"<<endl;
 	SistemaPrincipal.crearRespuesta(f);
+	cout<<"----------Creo Respuesta----"<<endl;
 	SistemaPrincipal.crearRespuesta(f);
+	cout<<"----------Creo Respuesta----"<<endl;
 	SistemaPrincipal.crearRespuesta(f);
 	//P1.ListarInformacion();
 	cout<<"----------"<<endl;
-	cout<<"----------"<<endl;
 	SistemaPrincipal.ListarRespuestas();
 	//R1.ListarInformacion();
+	cout<<"----------DoyMegusta----"<<endl;
+	SistemaPrincipal.DarMegusta();
+	/*SistemaPrincipal.DarMegusta();
+	SistemaPrincipal.DarMegusta();*/
+	SistemaPrincipal.DarMegusta();
+
+	SistemaPrincipal.RankearRespuesta();
+
+	cout<<"----------Muestro Preguntas Cons Respuesta----"<<endl;
+	SistemaPrincipal.ListarPreguntasConRespuestas();
+
+	SistemaPrincipal.CambiarEstado();
+	cout<<"Leandro ortega"<<endl;
+	SistemaPrincipal.CambiarEstadodos();
 
 	return 0;
 }

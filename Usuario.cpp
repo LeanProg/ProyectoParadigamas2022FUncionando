@@ -51,9 +51,7 @@ void Usuario::ListarInformacion(){
 
 }
 void Usuario::ListarInformacionDos(){
-	cout<<"----------"<<endl;;
-		cout<<"idUsuario: "<<this->id<<endl;
-		cout<<"Nombre del usuario: "<<this->getNombre()<<endl;
+		cout<<"|--|idUsuario: "<<this->id<<"|----|Nombre del usuario: "<<this->getNombre()<<endl;
 }
 void Usuario::SetCantidadRespAceptadas(){
 		this->cantRespuestasAceptadas=this->cantRespuestasAceptadas++;

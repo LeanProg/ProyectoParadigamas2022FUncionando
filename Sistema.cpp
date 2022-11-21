@@ -70,11 +70,43 @@ void Sistema::ListarPreguntas(){
 			contenedorP[var]->ListarInformacion();
 		}
 }
+void Sistema::ListarPreguntasConRespuestas(){
+		for (int var = 0; var<contenedorP.size() ; ++var) {
+				contenedorP[var]->ListarInformaciondos();
+			}
+}
 void Sistema::ListarRespuestas(){
 	for (int var = 0; var < contenedorP.size(); ++var) {
-		cout<<"Respuestas de la prgunta: "<<var<<endl;
+		cout<<"---//**//--Respuestas de la pregunta: "<<var<<endl;
 		contenedorP[var]->ListarRespuestas();
 	}
+}
+
+void Sistema::RankearRespuesta(){
+	int idPregunta;
+	this->ListarPreguntas();
+	cout<<"De cual pregunta desea rankear las respuestas?"<<endl;
+	cin>>idPregunta;
+	cout<<"A continuacion se lista la respuesta con MasMegusta"<<endl;
+	contenedorP[idPregunta]->OrdenarPorMegusta();
+}
+
+void Sistema::DarMegusta(){
+	    int preguntaid,respuestaId;
+		this->ListarPreguntas();
+		cout<<"--Seleccione la pregunta la cual desea ver las Respuestas---"<<endl;
+		cin>>preguntaid;
+		contenedorP[preguntaid]->ListarRespuestas();
+		cout<<"Cual Respuesta desea dar Me gusta"<<endl;
+		cin>>respuestaId;
+		contenedorP[preguntaid]->DarMegustaRespuesta(respuestaId);
+
+}
+void Sistema::CambiarEstado(){
+	contenedorP[0]->Solicitud1();
+}
+void Sistema::CambiarEstadodos(){
+	contenedorP[0]->Solicitud2();
 }
 Sistema::~Sistema() {
 	// TODO Auto-generated destructor stub

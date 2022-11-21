@@ -11,6 +11,7 @@
 #include "Fecha.h"
 #include "Usuario.h"
 #include "Respuesta.h"
+#include "Estado.h"
 #include <vector>
 
 using namespace std;
@@ -19,6 +20,7 @@ class Pregunta {
 private :
 		static int autoincremental3;
 		int idpregunta;
+		Estado *estado_;
 		string descripcion;
 		string titulo;
 		Usuario usuarioP;
@@ -34,7 +36,16 @@ public:
 	void AgregarRespuesta(Fecha f1,Usuario);
 	void ListarRespuestas();
 	void ListarInformacion();
+	void ListarInformaciondos();
+	void OrdenarPorMegusta();
+	void DarMegustaRespuesta(int);
 	virtual ~Pregunta();
+
+	/*Funcion para Cambiar de estados de la pregunta*/
+	void TransitionTo(Estado *estado);
+	/*Delego funciones al estado*/
+	void Solicitud1();
+	void Solicitud2();
 };
 
 #endif /* PREGUNTA_H_ */
