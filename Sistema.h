@@ -27,13 +27,18 @@ public:
 	bool crearRespuesta(Fecha f1);
 	void DarMegusta();
 	void RankearRespuesta();
-	void CambiarEstado();
-	void CambiarEstadodos();
+	//void CambiarEstado();
+	//void CambiarEstadodos();
+	bool controlFecha();
+	void controlarEstado();
 	void ListarUsuarios();
 	void ListarPreguntas();
 	void ListarPreguntasConRespuestas();
 	void ListarRespuestas();
 	Usuario *buscarUsuario(int id);
+
+	/*Metodos para probar los Estados*/
+	//void AgregarRespuestaEstado(Fecha f1);
 	virtual ~Sistema();
 };
 

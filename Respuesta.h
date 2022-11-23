@@ -24,6 +24,7 @@ private:
 public:
 	Respuesta();
 	Respuesta(string descrip,Fecha &fecha,Usuario &usu);
+	int getIdRespuesta();
 	void IncrementarContador();
 	void ListarInformacion();
 	int getCantidadMegusta();

@@ -13,9 +13,10 @@ using namespace std;
 
 class Activo : public Estado {
 public:
-	Activo();
-	void EncargarseDe1() override;
-	void EncargarseDe2() override;
+	Activo(Pregunta *pregunta);
+	virtual void EncargarseDe1() override;
+	virtual void EncargarseDe2() override;
+	virtual void AgregarRespuesta(Pregunta *auxPreg,Usuario aux,Fecha f1) override;
 	virtual ~Activo();
 };
 

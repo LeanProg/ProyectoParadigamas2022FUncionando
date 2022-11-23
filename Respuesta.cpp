@@ -21,10 +21,10 @@ Respuesta::Respuesta(string descrip,Fecha &fecha,Usuario &usu):fechaRespuesta(fe
 }
 void Respuesta::ListarInformacion(){
 	cout<<"Id respuesta: "<<this->idrespuesta<<endl;
-	cout<<"Id respuesta: "<<this->fechaRespuesta<<endl;
+	cout<<"Fecha Respuesta: "<<this->fechaRespuesta<<endl;
 	cout<<"Descripcion: "<<this->descripcion<<endl;
 	cout<<"Cantidad De Megusta:♥ "<<this->contadorMegusta<<endl;
-	cout<<"usuario: "<<endl;
+	cout<<"Usuario: ";
 	this->usuarioR.ListarInformacionDos();
 }
 void Respuesta::IncrementarContador(){
@@ -32,6 +32,9 @@ void Respuesta::IncrementarContador(){
 }
 int Respuesta::getCantidadMegusta(){
 	return this->contadorMegusta;
+}
+int Respuesta::getIdRespuesta(){
+	return this->idrespuesta;
 }
 Respuesta::~Respuesta() {
 	// TODO Auto-generated destructor stub

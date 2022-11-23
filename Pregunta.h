@@ -11,8 +11,10 @@
 #include "Fecha.h"
 #include "Usuario.h"
 #include "Respuesta.h"
-#include "Estado.h"
+
 #include <vector>
+
+class Estado;
 
 using namespace std;
 
@@ -33,7 +35,8 @@ public:
 	Pregunta(string descripcion,string titulo,Fecha &Fp,Usuario &Usu);
 	Pregunta(Pregunta &aux);
 	int getid();
-	void AgregarRespuesta(Fecha f1,Usuario);
+	//void AgregarRespuesta(Fecha f1,Usuario);
+	void InsertarRespuesta(Respuesta *);
 	void ListarRespuestas();
 	void ListarInformacion();
 	void ListarInformaciondos();
@@ -46,6 +49,9 @@ public:
 	/*Delego funciones al estado*/
 	void Solicitud1();
 	void Solicitud2();
+
+	/*Void Agregar Respuesta */
+	void AgregarRespuestaSegunEstado(Fecha f1,Usuario);
 };
 
 #endif /* PREGUNTA_H_ */

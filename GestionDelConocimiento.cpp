@@ -17,7 +17,7 @@ using namespace std;
 
 int main() {
 
-	Fecha f;
+	Fecha f,f2(1,1,2020);
 	/*Usuario usuarionuevo("leandro","ortega","Argentina","email@email.com","12345f");
 	Usuario usuarionuevodos("leandro2","ortega2","Argentina2","email@email2.com","12345f2");
 	Pregunta P1("Por que tanto calor?","Dia caluroso",f,usuarionuevo);*/
@@ -30,18 +30,17 @@ int main() {
 	//SistemaPrincipal.ListarUsuarios();
 
 	SistemaPrincipal.crearPregunta(f);
-	//SistemaPrincipal.crearPregunta(f);
-	cout<<"----------"<<endl;
-		cout<<"----------ListarPreguntas----"<<endl;
+	SistemaPrincipal.crearPregunta(f2);
+	cout<<"----------ListarPreguntas----"<<endl;
 	SistemaPrincipal.ListarPreguntas();
-	cout<<"----------Creo Respuesta ----"<<endl;
+	cout<<"----------Creo Respuesta -------"<<endl;
 	SistemaPrincipal.crearRespuesta(f);
-	cout<<"----------Creo Respuesta----"<<endl;
-	SistemaPrincipal.crearRespuesta(f);
-	cout<<"----------Creo Respuesta----"<<endl;
+	cout<<"----------Creo Respuesta en la pregunta 2 por favor-------"<<endl;
+	SistemaPrincipal.crearRespuesta(f2);
+	cout<<"----------Creo Respuesta-------"<<endl;
 	SistemaPrincipal.crearRespuesta(f);
 	//P1.ListarInformacion();
-	cout<<"----------"<<endl;
+	cout<<"----Listo Las respuestas Del Sistema------"<<endl;
 	SistemaPrincipal.ListarRespuestas();
 	//R1.ListarInformacion();
 	cout<<"----------DoyMegusta----"<<endl;
@@ -52,12 +51,14 @@ int main() {
 
 	SistemaPrincipal.RankearRespuesta();
 
-	cout<<"----------Muestro Preguntas Cons Respuesta----"<<endl;
+	cout<<"----------Muestro Preguntas Con Respuesta----"<<endl;
 	SistemaPrincipal.ListarPreguntasConRespuestas();
 
+	cout<<"----------Controlo la fecha de la ultima Respuesta----"<<endl;
+	SistemaPrincipal.controlFecha();
+/*
 	SistemaPrincipal.CambiarEstado();
 	cout<<"Leandro ortega"<<endl;
-	SistemaPrincipal.CambiarEstadodos();
-
+	SistemaPrincipal.CambiarEstadodos();*/
 	return 0;
 }

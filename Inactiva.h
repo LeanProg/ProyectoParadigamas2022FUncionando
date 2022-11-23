@@ -13,9 +13,10 @@ using namespace std;
 
 class Inactiva : public Estado {
 public:
-	Inactiva();
-	void EncargarseDe1() override;
-	void EncargarseDe2() override;
+	Inactiva(Pregunta *pregunta);
+	virtual void EncargarseDe1() override;
+	virtual void EncargarseDe2() override;
+	virtual void AgregarRespuesta(Pregunta *auxPreg,Usuario aux,Fecha f1) override;
 	virtual ~Inactiva();
 };
 

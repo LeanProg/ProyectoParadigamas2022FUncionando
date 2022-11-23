@@ -6,6 +6,8 @@
  */
 #include <iostream>
 #include "Sistema.h"
+#include "Inactiva.h"
+#include "Activo.h"
 #include <vector>
 using namespace std;
 
@@ -28,9 +30,7 @@ Usuario *Sistema::buscarUsuario(int id){
 	for (int var = 0; var<contedorUsuarios.size() ; ++var) {
 			if(id==contedorUsuarios[var]->getId()){
 				return (contedorUsuarios[var]);
-
 			}
-
 		}
 
 }
@@ -59,7 +59,7 @@ bool Sistema::crearRespuesta(Fecha f1){
 	cin>>idPregunta;
 	for (int var = 0; var < contenedorP.size(); ++var) {
 		if (contenedorP[var]->getid()==idPregunta) {
-			contenedorP[var]->AgregarRespuesta(f1, *nuevoU);
+			contenedorP[var]->AgregarRespuestaSegunEstado(f1, *nuevoU);
 		}
 	}
 return true;
@@ -102,12 +102,35 @@ void Sistema::DarMegusta(){
 		contenedorP[preguntaid]->DarMegustaRespuesta(respuestaId);
 
 }
+void Sistema::controlarEstado(){
+	for (int var = 0; var < contenedorP.size(); ++var) {
+		contenedorP[var]->ListarInformacion();
+	}
+}
+bool Sistema::controlFecha(){
+	Fecha f;
+	for (int var = 0; var < contenedorP.size(); ++var) {
+			if ((f-contenedorP[var]->fechaUltimaRespuesta)>185) {
+				cout<<"Cambio a inactiva"<<endl;
+				contenedorP[var]->TransitionTo(new Inactiva(contenedorP[var]));
+			}
+
+	}
+}
+/*
 void Sistema::CambiarEstado(){
 	contenedorP[0]->Solicitud1();
-}
+}*/
+/*
 void Sistema::CambiarEstadodos(){
 	contenedorP[0]->Solicitud2();
 }
+*/
+/*Metodos para Estado*/
+/*
+void Sistema::AgregarRespuestaEstado(Fecha f1){
+	contenedorP[0]->AgregarRespuestaSegunEstado(f1, *contedorUsuarios[0]);
+}*/
 Sistema::~Sistema() {
 	// TODO Auto-generated destructor stub
 }

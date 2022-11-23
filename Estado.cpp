@@ -6,11 +6,11 @@
  */
 
 #include "Estado.h"
-
-Estado::Estado() {
+Estado::Estado(Pregunta *pregunta):pregunta_(pregunta){
 }
-void Estado::set_Pregunta(Pregunta *pregunta){
-	this->pregunta_ = pregunta;
+
+void Estado::set_Pregunta(Pregunta *pregunta){;
+	this->pregunta_=pregunta;
 }
 
 
