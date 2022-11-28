@@ -27,6 +27,7 @@ public:
 	int getIdRespuesta();
 	void IncrementarContador();
 	void ListarInformacion();
+	void MarcarComoAceptada();
 	int getCantidadMegusta();
 	virtual ~Respuesta();
 

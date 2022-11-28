@@ -37,11 +37,15 @@ public:
 	int getid();
 	//void AgregarRespuesta(Fecha f1,Usuario);
 	void InsertarRespuesta(Respuesta *);
+	void AgregarTag(string,int);
+	string DevolverTag(int);
 	void ListarRespuestas();
 	void ListarInformacion();
 	void ListarInformaciondos();
 	void OrdenarPorMegusta();
 	void DarMegustaRespuesta(int);
+	void MarcarComoAceptada(int );
+	int getIdUsuario();
 	virtual ~Pregunta();
 
 	/*Funcion para Cambiar de estados de la pregunta*/

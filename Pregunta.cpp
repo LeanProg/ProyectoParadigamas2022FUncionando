@@ -8,6 +8,7 @@
 #include <algorithm>
 #include "Pregunta.h"
 #include "Activo.h"
+#include "Solucionado.h"
 #include <typeinfo.h>
 
 int Pregunta::autoincremental3=0;
@@ -37,7 +38,10 @@ void Pregunta::ListarInformacion(){
 	this->usuarioP.ListarInformacionDos();
 
 }
-
+void Pregunta::MarcarComoAceptada(int idRes){
+	this->contenedorRespuesta[idRes]->MarcarComoAceptada();
+	this->TransitionTo(new Solucionado(this));
+}
 void Pregunta::DarMegustaRespuesta(int a){
 	for (int var = 0; var < this->contenedorRespuesta.size(); ++ var) {
 		if (this->contenedorRespuesta[var]->getIdRespuesta()==a){
@@ -71,6 +75,7 @@ int Pregunta::getid(){
 	Respuesta *nuevaR = new Respuesta("Si porque hace frio",f1,aux);
 	contenedorRespuesta.insert(contenedorRespuesta.end(),nuevaR);
 }*/
+
 /*Metodo para Ingresar Respuesta*/
 void Pregunta::InsertarRespuesta(Respuesta *Raux){
 	contenedorRespuesta.insert(contenedorRespuesta.end(),Raux);
@@ -79,6 +84,15 @@ void Pregunta::ListarRespuestas(){
 	for (int var = 0; var < contenedorRespuesta.size(); ++var) {
 		cout<<"----->";contenedorRespuesta[var]->ListarInformacion();
 	}
+}
+void Pregunta::AgregarTag(string tag,int pos){
+	this->tags[pos]=tag;
+}
+string Pregunta::DevolverTag(int Pos){
+	 return this->tags[Pos];
+}
+int Pregunta::getIdUsuario(){
+	return this->usuarioP.getId();
 }
 void Pregunta::OrdenarPorMegusta(){
 	sort(contenedorRespuesta.begin(),contenedorRespuesta.end(),[] (Respuesta *x,Respuesta *y) {return x->getCantidadMegusta() >y->getCantidadMegusta();});

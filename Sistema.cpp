@@ -8,7 +8,10 @@
 #include "Sistema.h"
 #include "Inactiva.h"
 #include "Activo.h"
+#include "Suspendido.h"
+#include <string.h>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 Sistema::Sistema() {
@@ -131,7 +134,78 @@ void Sistema::CambiarEstadodos(){
 void Sistema::AgregarRespuestaEstado(Fecha f1){
 	contenedorP[0]->AgregarRespuestaSegunEstado(f1, *contedorUsuarios[0]);
 }*/
+
+void Sistema::ListarPreguntasPorTag(){
+	string tag;
+	cout<<"Ingrese el tag para mostrar las preguntas relacionadas"<<endl;
+	cin>>tag;
+	for (int var = 0; var < this->contenedorP.size(); ++var) {
+		for (int var2 = 0; var2 < 3; ++var2) {
+			if (contenedorP[var]->DevolverTag(var2).compare(tag)==0) {
+						contenedorP[var]->ListarInformacion();
+					}
+		}
+
+	}
+
+}
+
+void Sistema::MarcarRespuestasComoAceptada(){
+	int idUsuario,idPregunta,idRespuesta;
+		cout<<"------------------------------------"<<endl;
+		cout<<"-----------------------------o-------------"<<endl;
+
+		this->ListarUsuarios();
+		cout<<"Que usuario desea Listar sus preguntas? "<<endl;
+		cin>>idUsuario;
+		for (int var2 = 0; var2 < contenedorP.size(); ++var2) {
+			if(idUsuario == contenedorP[var2]->getIdUsuario()){
+				contenedorP[var2]->ListarInformacion();
+			}
+		}
+
+		cout<<"------------------------------------"<<endl;
+		cout<<"Ingrese el id de la Pregunta a la que quiere Mostrar las respuestas"<<endl;
+		cin>>idPregunta;
+		contenedorP[idPregunta]->ListarRespuestas();
+
+		cout<<"Que respuesta desea marcar como aceptada para esta Pregunta?"<<endl;
+		cin>>idRespuesta;
+		contenedorP[idPregunta]->MarcarComoAceptada(idRespuesta);
+
+}
+
+void Sistema::EliminarUsuario(int idUsuario){
+	  vector<Usuario*>::iterator it;
+	            for (it=contedorUsuarios.begin(); it!=contedorUsuarios.end(); ++it){
+	                delete (*it); //Llama al detructor de controles y libera la memoria
+	            }
+	            contedorUsuarios.clear();
+	    for(size_t i; i<contedorUsuarios.size();i++){
+
+	    	if(idUsuario ==  contedorUsuarios[i]->getId()){
+	    		for (int var2 = 0; var2 < contenedorP.size(); ++var2) {
+	    			    if(idUsuario == contenedorP[var2]->getIdUsuario()){
+	    			    	contenedorP[var2]->TransitionTo(new Suspendido(contenedorP[var2]));
+	    			    	}
+	    			   }
+	    		 contedorUsuarios.erase(contedorUsuarios.begin()+i);
+	    	}
+
+	    }
+
+}
+
 Sistema::~Sistema() {
-	// TODO Auto-generated destructor stub
+	vector<Usuario*>::iterator it;
+	                for (it=contedorUsuarios.begin(); it!=contedorUsuarios.end(); ++it){
+	                    delete (*it); //Llama al detructor de controles y libera la memoria
+	                }
+	                contedorUsuarios.clear();
+   vector<Pregunta*>::iterator it2;
+	            for (it2=contenedorP.begin(); it2!=contenedorP.end(); ++it2){
+	                delete (*it2); //Llama al detructor de controles y libera la memoria
+	                }
+	            contenedorP.clear();
 }
 

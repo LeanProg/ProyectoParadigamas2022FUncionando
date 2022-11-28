@@ -14,8 +14,8 @@ class Solucionado: public Estado{
 public:
 	Solucionado(Pregunta *pregunta);
 	virtual void EncargarseDe1() override;
-		virtual void EncargarseDe2() override;
-		virtual void AgregarRespuesta(Pregunta *auxPreg,Usuario aux,Fecha f1) override;
+	virtual void EncargarseDe2() override;
+	virtual void AgregarRespuesta(Pregunta *auxPreg,Usuario aux,Fecha f1) override;
 	virtual ~Solucionado();
 };
 

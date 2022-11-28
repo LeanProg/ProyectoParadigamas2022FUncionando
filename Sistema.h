@@ -35,8 +35,10 @@ public:
 	void ListarPreguntas();
 	void ListarPreguntasConRespuestas();
 	void ListarRespuestas();
+	void ListarPreguntasPorTag();
 	Usuario *buscarUsuario(int id);
-
+	void EliminarUsuario(int);
+	void MarcarRespuestasComoAceptada();
 	/*Metodos para probar los Estados*/
 	//void AgregarRespuestaEstado(Fecha f1);
 	virtual ~Sistema();

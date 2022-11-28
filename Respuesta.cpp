@@ -36,6 +36,9 @@ int Respuesta::getCantidadMegusta(){
 int Respuesta::getIdRespuesta(){
 	return this->idrespuesta;
 }
+void Respuesta::MarcarComoAceptada(){
+	this->aceptada=true;
+}
 Respuesta::~Respuesta() {
 	// TODO Auto-generated destructor stub
 }

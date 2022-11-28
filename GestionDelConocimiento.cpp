@@ -45,8 +45,7 @@ int main() {
 	//R1.ListarInformacion();
 	cout<<"----------DoyMegusta----"<<endl;
 	SistemaPrincipal.DarMegusta();
-	/*SistemaPrincipal.DarMegusta();
-	SistemaPrincipal.DarMegusta();*/
+
 	SistemaPrincipal.DarMegusta();
 
 	SistemaPrincipal.RankearRespuesta();
@@ -56,9 +55,6 @@ int main() {
 
 	cout<<"----------Controlo la fecha de la ultima Respuesta----"<<endl;
 	SistemaPrincipal.controlFecha();
-/*
-	SistemaPrincipal.CambiarEstado();
-	cout<<"Leandro ortega"<<endl;
-	SistemaPrincipal.CambiarEstadodos();*/
+
 	return 0;
 }
